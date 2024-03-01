@@ -2,11 +2,11 @@ import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const createMessage = mutation({
-  args: { text: v.string(), user: v.string() },
+  args: { body: v.string(), author: v.string() },
   handler: async (ctx, args) => {
-    const messageId = await ctx.db.insert("messages", {
-      text: args.text,
-      user: args.user,
+    return await ctx.db.insert("messages", {
+      body: args.body,
+      author: args.author,
     });
   },
 });
@@ -14,6 +14,7 @@ export const createMessage = mutation({
 export const getLastTenMessages = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db.query("messages").order("desc").take(10);
+    const messages = await ctx.db.query("messages").order("desc").take(10);
+    return messages.reverse();
   },
 });
