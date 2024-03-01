@@ -14,7 +14,7 @@ export default function MessageTerminal({ user }: MessageTerminalProps) {
   const [messageInput, setMessageInput] = useState("");
   const sendMessage = useMutation(api.messages.createMessage);
   const messages = useQuery(api.messages.getLastTenMessages);
-  const handleSubmit = (body, author) => {
+  const handleSubmit = (body: string, author: string) => {
     sendMessage({
       body,
       author,
