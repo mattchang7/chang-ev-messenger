@@ -3,7 +3,6 @@
 import { useMutation, useQuery } from "convex/react";
 import { useState } from "react";
 import { api } from "../../convex/_generated/api";
-import { timeConverter } from "@/util/timeConverter";
 import MessageBubble from "./MessageBubble";
 
 type MessageTerminalProps = {
@@ -24,9 +23,8 @@ export default function MessageTerminal({ user }: MessageTerminalProps) {
       setMessageInput("");
     }
   };
-  console.log(messages);
   return (
-    <div className="border  mt-5 h-5/6 w-5/6 md:w-1/2 flex flex-col">
+    <div className="border  mt-5 h-[85vh] w-5/6 md:w-1/2 flex flex-col">
       <div className="border h-full flex flex-col p-2 overflow-scroll">
         {messages?.map((m) => (
           <MessageBubble key={m._id} message={m} user={user} />

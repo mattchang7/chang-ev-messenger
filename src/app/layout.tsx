@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="h-full">
-      <body className="bg-zinc-100 text-zinc-800 h-full">
+      <body className="bg-zinc-100 text-zinc-600 h-full">
         <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>

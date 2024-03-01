@@ -6,7 +6,7 @@ export default function Bob() {
     <div className="h-full">
       <nav className="flex flex-row justify-between p-4">
         <Link
-          className="hover:text-zinc-500 flex flex-row items-center"
+          className="hover:text-zinc-300 flex flex-row items-center"
           href="/"
         >
           <svg
