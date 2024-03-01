@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html className="h-full">
+      <body className="bg-zinc-100 text-zinc-800 h-full">
         <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>
