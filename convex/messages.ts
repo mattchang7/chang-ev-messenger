@@ -1,4 +1,4 @@
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const createMessage = mutation({
@@ -8,5 +8,12 @@ export const createMessage = mutation({
       text: args.text,
       user: args.user,
     });
+  },
+});
+
+export const getLastTenMessages = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db.query("messages").order("desc").take(10);
   },
 });

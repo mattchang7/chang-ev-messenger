@@ -1,6 +1,6 @@
 "use client";
 
-import { useMutation } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { useState } from "react";
 import { api } from "../../convex/_generated/api";
 
@@ -11,6 +11,8 @@ type MessageTerminalProps = {
 export default function MessageTerminal({ user }: MessageTerminalProps) {
   const [messageInput, setMessageInput] = useState("");
   const sendMessage = useMutation(api.messages.createMessage);
+  const messages = useQuery(api.messages.getLastTenMessages);
+  console.log(messages);
   return (
     <div className="border h-5/6 w-5/6 flex flex-col">
       <div className="border">Message Board</div>
